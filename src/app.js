@@ -102,5 +102,3 @@ export default class Frontend {
     }
 
 }
-
-new Frontend().start()
