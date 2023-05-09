@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 // 👇️ "/home/john/Desktop/javascript"
 const __dirname = path.dirname(__filename);
 
-class Frontend {
+export default class Frontend {
     _inbox = []
     _outbox = []
     server
@@ -69,5 +69,3 @@ class Frontend {
     }
 
 }
-
-new Frontend().start()
