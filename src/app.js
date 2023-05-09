@@ -26,7 +26,7 @@ export default class Frontend {
         console.log(`Working dir ${__dirname}`)
 
         app.use(sassMiddleware({
-            src: path.join(__dirname, 'src/sass'),
+            src: path.join(__dirname, 'src/scss'),
             dest: path.join(__dirname, 'public'),
             indentedSyntax: true, // true = .sass and false = .scss
             sourceMap: true
