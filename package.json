@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "src/app.js",
   "license": "MIT",
   "type": "module",
   "dependencies": {
@@ -10,5 +10,11 @@
     "n3": "^1.16.4",
     "node-sass-middleware": "^1.0.1",
     "nunjucks": "^3.2.4"
+  },
+  "scripts": {
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
