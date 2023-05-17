@@ -1,6 +1,6 @@
 {
   "name": "evno-frontend",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "./src/frontend.js",
   "exports": "./src/frontend.js",
   "license": "MIT",
