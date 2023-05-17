@@ -20,7 +20,7 @@ export default class Frontend {
 
         console.log(`Working dir ${__dirname}`)
 
-        nunjucks.configure('../views', {
+        nunjucks.configure('views', {
             autoescape: true,
             express: app
         })
