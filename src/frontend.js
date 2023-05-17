@@ -18,12 +18,12 @@ export default class Frontend {
 
         const app = express()
 
-        nunjucks.configure('views', {
+        console.log(`Working dir ${__dirname}`)
+
+        nunjucks.configure('../views', {
             autoescape: true,
             express: app
         })
-
-        console.log(`Working dir ${__dirname}`)
 
         app.use(sassMiddleware({
             src: path.join(__dirname, 'scss'),
