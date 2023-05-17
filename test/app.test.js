@@ -1,4 +1,4 @@
-import Frontend from '../src/app'
+import Frontend from '../src/frontend'
 
 test('Can construct frontend', () => {
   const frontend = new Frontend()
