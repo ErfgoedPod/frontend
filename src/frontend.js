@@ -2,13 +2,11 @@ import express from 'express'
 import http from 'http'
 import nunjucks from 'nunjucks'
 import sassMiddleware from 'node-sass-middleware'
-import path from 'path';
-import {fileURLToPath} from 'url';
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url);
-
-// 👇️ "/home/john/Desktop/javascript"
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default class Frontend {
     _inbox = []
@@ -66,35 +64,35 @@ export default class Frontend {
         // Graceful shutdown   
         setInterval(() => server.getConnections(
             (err, connections) => console.log(`${connections} connections currently open`)
-        ), 1000);
-        
-        process.on('SIGTERM', shutDown);
-        process.on('SIGINT', shutDown);
-        
-        let connections = [];
-        
+        ), 1000)
+
+        process.on('SIGTERM', shutDown)
+        process.on('SIGINT', shutDown)
+
+        let connections = []
+
         server.on('connection', connection => {
-            connections.push(connection);
-            connection.on('close', () => connections = connections.filter(curr => curr !== connection));
-        });
-        
+            connections.push(connection)
+            connection.on('close', () => connections = connections.filter(curr => curr !== connection))
+        })
+
         function shutDown() {
-            console.log('Received kill signal, shutting down gracefully');
+            console.log('Received kill signal, shutting down gracefully')
             server.close(() => {
-                console.log('Closed out remaining connections');
-                process.exit(0);
-            });
-        
+                console.log('Closed out remaining connections')
+                process.exit(0)
+            })
+
             setTimeout(() => {
-                console.error('Could not close connections in time, forcefully shutting down');
-                process.exit(1);
-            }, 10000);
-        
-            connections.forEach(curr => curr.end());
-            setTimeout(() => connections.forEach(curr => curr.destroy()), 5000);
+                console.error('Could not close connections in time, forcefully shutting down')
+                process.exit(1)
+            }, 10000)
+
+            connections.forEach(curr => curr.end())
+            setTimeout(() => connections.forEach(curr => curr.destroy()), 5000)
         }
     }
-    
+
     get outbox() {
         return this._outbox
     }
