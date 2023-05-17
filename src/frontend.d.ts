@@ -1,5 +1,5 @@
 
-export class Frontend {
+export default class Frontend {
     constructor()
     start(): void
     outbox: any[]
